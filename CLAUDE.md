@@ -1,48 +1,46 @@
 # PROJET
 
-Psychodesign — [description fonctionnelle à compléter]
+Psychodesign — Référentiel public pour designers : biais cognitifs et principes de psychologie appliqués au design produit.
+Audience : designers (junior à senior), accès libre, lecture et exploration.
 
 # STACK
 
-- Framework : [à compléter]
-- Backend : [à compléter]
-- Langage : TypeScript strict
-- Navigation : [à compléter]
+- Framework : React (JavaScript — pas TypeScript)
+- Styles : Inline styles uniquement — zéro CSS class, zéro lib externe
+- Persistance : window.storage (API custom de la plateforme)
+- Navigation : aucune — single-page, sections par état React
+- Fonts : Plus Jakarta Sans + Playfair Display (Google Fonts)
 
 # RÈGLES ABSOLUES
 
-1. TypeScript strict — pas de `any`, pas de cast forcé
-2. Commits en anglais, format : `type(scope): message`
-3. Pas de commentaires évidents dans le code
-4. Un composant = un fichier
-5. Les types globaux sont dans `/types/index.ts`
+1. JavaScript vanilla — pas de TypeScript
+2. Inline styles uniquement — toutes les couleurs passent par les color maps
+3. UI en français — labels, copy, messages, placeholders
+4. Commits en anglais, format : `type(scope): message`
+5. Pas de commentaires évidents dans le code
+6. Jamais de valeur hex en dur dans un composant — utiliser les constantes ou color maps
 
 # PRINCIPES DE CODE
 
-Au démarrage de chaque session, lis le package.json ou l'équivalent du projet.
-Si React / React Native détecté → appliquer @docs/principles-react.md
-Si langage OO détecté (Node avec classes, Python, Java) → appliquer @docs/principles-solid.md
-Si les deux coexistent → appliquer les deux fichiers sur leur périmètre respectif.
+Au démarrage de chaque session, appliquer @docs/principles-react.md
 
 # ARCHITECTURE
 
-Feature folders : `/features/[nom]/components|hooks|screens`
-Shared : `/components`, `/hooks`, `/lib`
+Fichier principal : App.jsx (données + composants dans un seul fichier actuellement)
 
-# RÉFÉRENCES
-
-- Schéma base de données : @docs/schema.md
-- Structure de navigation : @docs/navigation.md
-- Design system tokens : @docs/design-tokens.md
+Structure interne :
+- Color maps globales : CAT_C, TYPE_C, KPI_C, PHASE_C → voir @docs/color-system.md
+- Données : arrays `biases[]` et `psychology[]` → voir @docs/data-schema.md
+- Composants : DropFilter, Opt, Chip, Card, ExBox, App
+- Labels localisés : CAT_LABEL, TYPE_LABEL, KPI_LABEL, PHASE_LABEL
 
 # MODE DE RÉPONSE
 
 Apply caveman full mode by default.
 Switch to normal verbosity when:
-- the task involves architectural decisions
-- comparative analysis between two approaches
-- code review requiring detailed reasoning
-- explicitly asked via `--explain` in the message
+- architectural decisions
+- comparative analysis between approaches
+- explicitly asked via `--explain`
 
 # SURVEILLANCE DU CONTEXTE
 
